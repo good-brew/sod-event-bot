@@ -1,4 +1,4 @@
-name: Update Events
+name: Update Events v2
 
 concurrency:
   group: update-events

@@ -1,5 +1,9 @@
 name: Update Events
 
+concurrency:
+  group: update-events
+  cancel-in-progress: true
+  
 on:
   workflow_dispatch:
 
@@ -28,6 +32,12 @@ jobs:
           GUILD_ID: ${{ secrets.GUILD_ID }}
         run: node scripts/fetchEvents.js
 
+      - name: Fetch Events
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+          GUILD_ID: ${{ secrets.GUILD_ID }}
+        run: node scripts/fetchEvents.js
+
       - name: Commit Changes
         run: |
           git config user.name github-actions
@@ -35,6 +45,10 @@ jobs:
 
           git add events.json
 
-          git diff --cached --quiet || git commit -m "Update events"
+          if ! git diff --cached --quiet; then
+            git commit -m "Update events"
 
-          git push
+            git pull --rebase origin main
+
+            git push
+          fi

@@ -19,5 +19,12 @@
     "date": "2026-10-13T15:00:00+00:00",
     "location": "New York",
     "description": "Coach will be away on Business for a week!"
+  },
+  {
+    "id": "1559204113890287707",
+    "title": "MAC Out of Town Hunting!",
+    "date": "2026-10-12T15:00:00+00:00",
+    "location": "Washington State",
+    "description": "MAC will be Deer hunting Fri-Sun for the month of October and Elk hunting Fri-Sun for the first week of November. He will be in town for the work week!"
   }
 ]
